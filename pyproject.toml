@@ -1,0 +1,46 @@
+[project]
+name = "mirai_data_collection"
+description = "Python application created from the gh:mdklatt/cookiecutter-python-app Cookiecutter template."
+authors = [
+    { name = "belkhirnacim", email = "belkhir.nacim@gmail.com" },
+]
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "tomli==2.0.1; python_version<'3.11'"
+]
+dynamic = ["version", "readme"]
+
+[project.urls]
+"Homepage" = "http://github.com/miraito/mirai_data_collection"
+
+[project.scripts]
+mirai_data_collection = "mirai_data_collection.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.3.1,<8",
+    "sphinx>=6.2.1,<7",
+    "sphinx_rtd_theme>=1.2.1,<2",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = {attr = "mirai_data_collection.__version__"}
+readme = {file = ["README.rst"], content-type = "text/x-rst"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
