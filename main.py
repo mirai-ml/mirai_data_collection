@@ -2,14 +2,18 @@
 Implementation of the command line interface using Typer.
 """
 
-import typer
-from inspect import getfullargspec
-from os import environ
 import asyncio
 from datetime import datetime, timedelta
-from .core.config import config
-from .core.logger import logger
-from .api import data_collection, connect_to_mongo, remove_older_data  # Assuming these functions are in the api module
+from inspect import getfullargspec
+from os import environ
+
+import typer
+
+from mcollect.core.config import config
+from mcollect.core.logger import logger
+
+from mcollect.api import (  # Assuming these functions are in the api module
+    connect_to_mongo, data_collection, remove_older_data)
 
 app = typer.Typer()
 
